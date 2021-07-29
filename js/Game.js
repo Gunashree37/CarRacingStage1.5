@@ -29,9 +29,11 @@ class Game {
       form.display();
     }
 
-   
-    
-    
+    car1 = createSprite(100,200);
+    car2 = createSprite(300,200);
+    car3 = createSprite(500,200);
+    car4 = createSprite(700,200);
+    cars = [car1, car2, car3, car4];
   }
 
   play(){
@@ -40,11 +42,13 @@ class Game {
     Player.getPlayerInfo();
     
     if(allPlayers !== undefined){
-     
+      //var display_position = 100;
+      
+      //index of the array
       var index = 0;
 
-     
-      var x = 175;
+      //x and y position of the cars
+      var x = 0;
       var y;
 
       for(var plr in allPlayers){
@@ -64,15 +68,19 @@ class Game {
           
           
           
-          
         }
        
-       
+        //textSize(15);
+        //text(allPlayers[plr].name + ": " + allPlayers[plr].distance, 120,display_position)
       }
 
     }
 
-  
+    if(keyIsDown(UP_ARROW) && player.index !== null){
+      player.distance +=10
+      player.update();
+    }
+
     drawSprites();
   }
 }
